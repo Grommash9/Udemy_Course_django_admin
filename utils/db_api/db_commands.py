@@ -6,10 +6,7 @@ from django_project.telegrambot.usersmanage.models import Item, User
 
 @sync_to_async
 def add_user(user_id, full_name, username):
-    try:
-        return User(user_id=int(user_id), name=full_name, username=username).save()
-    except Exception:
-        return select_user(int(user_id))
+    return User(user_id=int(user_id), name=full_name, username=username).save()
 
 
 @sync_to_async
